@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Register</title>
+
+```
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f8fc;
+        color: #333;
+        margin: 0;
+    }
+
+    header {
+        background-color: #dff1ff;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #1565c0;
+    }
+
+    h2 {
+        color: #1565c0;
+    }
+
+    nav {
+        background-color: white;
+        padding: 15px;
+    }
+
+    nav a {
+        color: #1565c0;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        color: #e65100;
+        text-decoration: underline;
+    }
+
+    main {
+        width: 85%;
+        max-width: 900px;
+        margin: 30px auto;
+    }
+
+    main a {
+        color: #1565c0;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    main a:hover {
+        color: #e65100;
+        text-decoration: underline;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    fieldset {
+        background-color: white;
+        border: 2px solid #90caf9;
+        border-radius: 10px;
+        padding: 25px;
+        width: 400px;
+        max-width: 90%;
+        margin: auto;
+    }
+
+    legend {
+        color: #1565c0;
+        font-size: 18px;
+        padding: 0 8px;
+    }
+
+    label {
+        color: #333;
+    }
+
+    input,
+    select {
+        width: 90%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #90caf9;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+    input:focus,
+    select:focus {
+        outline: none;
+        border: 2px solid #1565c0;
+    }
+
+    button {
+        background-color: #1565c0;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #e65100;
+    }
+
+    footer {
+        background-color: #dff1ff;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    footer p {
+        color: #1565c0;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<header>
+
+```
+<center>
+    <h1>🎓 StudentHub</h1>
+    <p><strong>Create Your Account</strong></p>
+</center>
+
+<hr>
+
+<nav aria-label="Registration Navigation">
+
+    <center>
+        <a href="index.html">🏠 Home</a> |
+        <a href="about.html">ℹ️ About</a> |
+        <a href="login.html">🔐 Login</a> |
+        <a href="contact.html">📞 Contact</a>
+    </center>
+
+</nav>
+
+<hr>
+```
+
+</header>
+
+<main>
+
+```
+<center>
+
+    <h2>📝 Create Student Account</h2>
+
+    <p>
+        Join StudentHub and manage your academic activities.
+    </p>
+
+    <form action="#" method="post">
+
+        <fieldset>
+
+            <legend><strong>👤 Personal Information</strong></legend>
+
+            <p>
+                <label for="name">
+                    <strong>Full Name:</strong>
+                </label>
+                <br>
+
+                <input type="text"
+                       id="name"
+                       name="name"
+                       placeholder="Enter your full name"
+                       required>
+            </p>
+
+            <p>
+                <label for="email">
+                    <strong>Email:</strong>
+                </label>
+                <br>
+
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="Enter your email"
+                       required>
+            </p>
+
+            <p>
+                <label for="password">
+                    <strong>Password:</strong>
+                </label>
+                <br>
+
+                <input type="password"
+                       id="password"
+                       name="password"
+                       placeholder="Create a password"
+                       required>
+            </p>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+
+            <legend><strong>🎓 Academic Information</strong></legend>
+
+            <p>
+                <label for="course">
+                    <strong>Course:</strong>
+                </label>
+                <br>
+
+                <select id="course" name="course" required>
+                    <option value="">-- Select Course --</option>
+                    <option value="btech">B.Tech</option>
+                    <option value="bca">BCA</option>
+                    <option value="mca">MCA</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="role">
+                    <strong>Role:</strong>
+                </label>
+                <br>
+
+                <select id="role" name="role" required>
+                    <option value="">-- Select Role --</option>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+            </p>
+
+        </fieldset>
+
+        <br>
+
+        <button type="submit">📝 Create Account</button>
+
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="login.html">
+            <strong>Login here →</strong>
+        </a>
+    </p>
+
+</center>
+```
+
+</main>
+
+<hr>
+
+<footer>
+
+```
+<center>
+    <p>🎓 StudentHub | © 2026</p>
+</center>
+```
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub - Dynamic UI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- 1. Notification Banner -->
+    <div id="notification" class="notification">
+        Welcome to StudentHub! Check the latest updates.
+        <button id="closeNotification">X</button>
+    </div>
+
+    <!-- Header and 5. Hamburger Menu -->
+    <header>
+        <h2>StudentHub</h2>
+        <button id="menuButton" aria-label="Toggle navigation"
+                aria-expanded="false">☰</button>
+
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <!-- 6. Theme Switcher -->
+        <button id="themeButton">Dark Mode</button>
+    </header>
+
+    <main>
+        <h1>Welcome to StudentHub</h1>
+        <p>Your academic companion for learning and student activities.</p>
+
+        <!-- 2. Modal Popup -->
+        <button id="openModal">Show Welcome Popup</button>
+
+        <div id="modal" class="modal" role="dialog"
+             aria-modal="true" aria-labelledby="modalTitle" hidden>
+            <div class="modalContent">
+                <button id="closeModal" aria-label="Close popup">X</button>
+                <h2 id="modalTitle">Welcome to StudentHub!</h2>
+                <p>Manage your studies, events and learning materials.</p>
+            </div>
+        </div>
+
+        <!-- 3. Content Slider -->
+        <section class="slider">
+            <h2>StudentHub Features</h2>
+
+            <div id="slideContent" aria-live="polite">
+                Study Materials
+            </div>
+
+            <button id="previousSlide">Previous</button>
+            <button id="nextSlide">Next</button>
+        </section>
+
+        <!-- 1. Collapsible FAQ -->
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faqItem">
+                <button class="faqQuestion" aria-expanded="false">
+                    What is StudentHub?
+                </button>
+                <p class="faqAnswer" hidden>
+                    StudentHub is a portal for students to access academic
+                    information and learning materials.
+                </p>
+            </div>
+
+            <div class="faqItem">
+                <button class="faqQuestion" aria-expanded="false">
+                    How can I access study materials?
+                </button>
+                <p class="faqAnswer" hidden>
+                    Open the Notes page to access available study materials.
+                </p>
+            </div>
+
+            <div class="faqItem">
+                <button class="faqQuestion" aria-expanded="false">
+                    How can I check upcoming events?
+                </button>
+                <p class="faqAnswer" hidden>
+                    Visit the Events page to see upcoming college activities.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 StudentHub Portal</p>
+    </footer>
+
+</body>
+</html>

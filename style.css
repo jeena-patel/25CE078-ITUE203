@@ -1,0 +1,168 @@
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: white;
+    color: black;
+    transition: 0.3s;
+}
+
+header {
+    background: lightblue;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+nav a {
+    margin: 8px;
+    text-decoration: none;
+    color: black;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+/* 1. Notification banner */
+.notification {
+    background: lightyellow;
+    padding: 12px;
+    text-align: center;
+}
+
+#closeNotification {
+    float: right;
+}
+
+/* 2. Modal popup */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modalContent {
+    background: white;
+    color: black;
+    padding: 25px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+/* 3. Content slider */
+.slider {
+    background: #eaf5ff;
+    color: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#slideContent {
+    padding: 30px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* 4. Collapsible FAQ */
+.faqItem {
+    border-bottom: 1px solid gray;
+    text-align: left;
+}
+
+.faqQuestion {
+    width: 100%;
+    text-align: left;
+    background: #eeeeee;
+}
+
+.faqAnswer {
+    padding: 10px;
+}
+
+/* 5. Hamburger menu */
+#menuButton {
+    display: none;
+}
+
+/* 6. Dark theme */
+body.dark {
+    background: #222;
+    color: white;
+}
+
+body.dark header {
+    background: #333;
+}
+
+body.dark nav a {
+    color: white;
+}
+
+body.dark .slider {
+    background: #444;
+    color: white;
+}
+
+body.dark .faqQuestion {
+    background: #444;
+    color: white;
+}
+
+footer {
+    background: lightgray;
+    color: black;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Mobile screen */
+@media (max-width: 600px) {
+    header {
+        justify-content: space-between;
+    }
+
+    #menuButton {
+        display: inline-block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+    }
+
+    nav.show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav a {
+        padding: 8px;
+    }
+}

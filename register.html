@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="register.js" defer></script>
+</head>
+<body>
+
+    <h1>Student Registration Form</h1>
+
+    <form id="registrationForm" novalidate>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+        <small id="nameError"></small>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+        <small id="emailError"></small>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" placeholder="10-digit mobile number">
+        <small id="mobileError"></small>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Create password">
+        <small id="passwordError"></small>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password">
+        <small id="confirmPasswordError"></small>
+
+        <label for="course">Course:</label>
+        <select id="course">
+            <option value="">Select Course</option>
+            <option value="BTech">BTech</option>
+            <option value="BCA">BCA</option>
+            <option value="BBA">BBA</option>
+            <option value="MCA">MCA</option>
+        </select>
+        <small id="courseError"></small>
+
+        <label for="year">Year:</label>
+        <select id="year">
+            <option value="">Select Year</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+        </select>
+        <small id="yearError"></small>
+
+        <label>Gender:</label>
+        <div class="gender">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+            <label><input type="radio" name="gender" value="Other"> Other</label>
+        </div>
+        <small id="genderError"></small>
+
+        <label class="terms">
+            <input type="checkbox" id="terms">
+            I accept the terms and conditions
+        </label>
+        <small id="termsError"></small>
+
+        <button type="submit">Register</button>
+        <button type="reset">Clear</button>
+
+        <p id="successMessage"></p>
+
+    </form>
+
+</body>
+</html>

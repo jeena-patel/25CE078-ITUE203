@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub Events</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="events.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>StudentHub - Events</h1>
+        <p>Explore upcoming college events</p>
+    </header>
+
+    <main>
+        <div class="controls">
+            <input
+                type="search"
+                id="search"
+                placeholder="Search events..."
+                aria-label="Search events">
+
+            <select id="category" aria-label="Filter by category">
+                <option value="All">All Categories</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Sports">Sports</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Competition">Competition</option>
+            </select>
+
+            <select id="sort" aria-label="Sort events">
+                <option value="dateAsc">Date: Earliest First</option>
+                <option value="dateDesc">Date: Latest First</option>
+                <option value="titleAsc">Title: A to Z</option>
+                <option value="titleDesc">Title: Z to A</option>
+            </select>
+        </div>
+
+        <p id="resultCount" aria-live="polite"></p>
+
+        <div id="eventList" class="eventList" aria-live="polite">
+            Loading events...
+        </div>
+
+        <div class="pagination">
+            <button id="previousButton" disabled>Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextButton" disabled>Next</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>StudentHub Portal</p>
+    </footer>
+
+</body>
+</html>

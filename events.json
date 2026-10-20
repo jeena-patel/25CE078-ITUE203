@@ -1,0 +1,45 @@
+
+[
+    {
+        "id": 1,
+        "title": "Web Development Workshop",
+        "category": "Workshop",
+        "date": "2026-11-10",
+        "description": "Learn HTML, CSS and JavaScript."
+    },
+    {
+        "id": 2,
+        "title": "Annual Sports Day",
+        "category": "Sports",
+        "date": "2026-11-15",
+        "description": "Participate in college sports activities."
+    },
+    {
+        "id": 3,
+        "title": "Technical Seminar",
+        "category": "Seminar",
+        "date": "2026-11-20",
+        "description": "Explore new technologies and innovations."
+    },
+    {
+        "id": 4,
+        "title": "Coding Competition",
+        "category": "Competition",
+        "date": "2026-11-25",
+        "description": "Show your programming skills."
+    },
+    {
+        "id": 5,
+        "title": "Career Guidance Session",
+        "category": "Seminar",
+        "date": "2026-12-01",
+        "description": "Get guidance for your future career."
+    },
+    {
+        "id": 6,
+        "title": "Science Exhibition",
+        "category": "Workshop",
+        "date": "2026-12-05",
+        "description": "Explore student science projects."
+    }
+]

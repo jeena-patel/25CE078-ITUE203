@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 850px;
+            margin: 30px auto;
+            padding: 15px;
+        }
+
+        input, textarea, button {
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        input, textarea {
+            width: 95%;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .event {
+            border: 1px solid #ccc;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Event Management Using Fetch API</h2>
+
+<form id="eventForm">
+    <input type="hidden" id="eventId">
+
+    <label>Event Title</label><br>
+    <input type="text" id="title" required><br>
+
+    <label>Description</label><br>
+    <textarea id="description"></textarea><br>
+
+    <label>Event Date</label><br>
+    <input type="date" id="event_date" required><br>
+
+    <button type="submit" id="saveButton">Add Event</button>
+    <button type="button" id="cancelButton" hidden>Cancel Edit</button>
+</form>
+
+<p id="message" role="status"></p>
+
+<h3>Event List</h3>
+<div id="eventList">Loading events...</div>
+
+<script>
+const api = "api/events.php";
+
+const form = document.getElementById("eventForm");
+const eventList = document.getElementById("eventList");
+const message = document.getElementById("message");
+const eventId = document.getElementById("eventId");
+
+async function request(method, data = null) {
+    const options = { method };
+
+    if (data !== null) {
+        options.headers = { "Content-Type": "application/json" };
+        options.body = JSON.stringify(data);
+    }
+
+    const response = await fetch(api, options);
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new Error(result.error || "Request failed");
+    }
+
+    return result;
+}
+
+// LIST EVENTS
+async function loadEvents() {
+    try {
+        const events = await request("GET");
+        eventList.replaceChildren();
+
+        if (events.length === 0) {
+            eventList.textContent = "No events found.";
+            return;
+        }
+
+        events.forEach(event => {
+            const box = document.createElement("div");
+            box.className = "event";
+
+            const heading = document.createElement("h3");
+            heading.textContent = event.title;
+
+            const description = document.createElement("p");
+            description.textContent = event.description || "";
+
+            const date = document.createElement("p");
+            date.textContent = "Date: " + event.event_date;
+
+            const editButton = document.createElement("button");
+            editButton.textContent = "Edit";
+            editButton.addEventListener("click", () => editEvent(event));
+
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            deleteButton.addEventListener("click", () => deleteEvent(event.id));
+
+            box.append(heading, description, date, editButton, deleteButton);
+            eventList.appendChild(box);
+        });
+    } catch (error) {
+        message.textContent = error.message;
+    }
+}
+
+// ADD OR UPDATE EVENT
+form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const data = {
+        title: document.getElementById("title").value.trim(),
+        description: document.getElementById("description").value.trim(),
+        event_date: document.getElementById("event_date").value
+    };
+
+    const editing = eventId.value !== "";
+
+    if (editing) {
+        data.id = Number(eventId.value);
+    }
+
+    try {
+        const result = await request(editing ? "PUT" : "POST", data);
+        message.textContent = result.message;
+        form.reset();
+        eventId.value = "";
+        document.getElementById("saveButton").textContent = "Add Event";
+        document.getElementById("cancelButton").hidden = true;
+        await loadEvents();
+    } catch (error) {
+        message.textContent = error.message;
+    }
+});
+
+// LOAD EVENT INTO FORM FOR EDITING
+function editEvent(event) {
+    eventId.value = event.id;
+    document.getElementById("title").value = event.title;
+    document.getElementById("description").value = event.description || "";
+    document.getElementById("event_date").value = event.event_date;
+    document.getElementById("saveButton").textContent = "Update Event";
+    document.getElementById("cancelButton").hidden = false;
+}
+
+// DELETE EVENT
+async function deleteEvent(id) {
+    if (!confirm("Are you sure you want to delete this event?")) {
+        return;
+    }
+
+    try {
+        const result = await request("DELETE", { id });
+        message.textContent = result.message;
+        await loadEvents();
+    } catch (error) {
+        message.textContent = error.message;
+    }
+}
+
+document.getElementById("cancelButton").addEventListener("click", () => {
+    form.reset();
+    eventId.value = "";
+    document.getElementById("saveButton").textContent = "Add Event";
+    document.getElementById("cancelButton").hidden = true;
+});
+
+loadEvents();
+</script>
+
+</body>
+</html>
